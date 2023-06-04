@@ -1,0 +1,20 @@
+body {
+  background-color: #000000;
+  color: white;
+}
+
+/* nav background options */
+/* background-image: linear-gradient(to top, #209cff 0%, #68e0cf 100%); 
+background-image: linear-gradient(to right, #3ab5b0 0%, #3d99be 31%, #56317a 100%);
+background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+*/
+
+/* login and register */
+/* background: #F00000;  /* fallback for old browsers error */
+//background: -webkit-linear-gradient(to right, #DC281E, #F00000);  /* Chrome 10-25, Safari 5.1-6 */
+
+/* background: #fc00ff;  /* fallback for old browsers register */
+//background: -webkit-linear-gradient(to right, #00dbde, #fc00ff);  /* Chrome 10-25, Safari 5.1-6 */
+
+/* background: #AAFFA9;  /* fallback for old browsers login */
+//background: -webkit-linear-gradient(to top, #11FFBD, #AAFFA9);  /* Chrome 10-25, Safari 5.1-6 */
