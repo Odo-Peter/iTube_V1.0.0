@@ -13,13 +13,16 @@
   -webkit-text-fill-color: transparent;
 
   /* background: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%); */
+  /* background: linear-gradient(90deg, #0700b8 0%, #00ff88 100%); */
 }
 
-/* .text-light {
-  background: -webkit-linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-} */
+.line {
+  background: -webkit-linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);
+}
+
+.line2 {
+  background: -webkit-linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+}
 
 .shadows {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -30,9 +33,19 @@
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-/* .youtube {
-  color: red;
-} */
+.pinkish {
+  background: -webkit-linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.thin {
+  border-right: solid 0.2px rgba(250, 250, 250, 0.04);
+}
+
+.thin2 {
+  border-bottom: solid 0.2px rgba(250, 250, 250, 0.04);
+}
 
 @tailwind base;
 @tailwind components;

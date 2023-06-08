@@ -17,17 +17,26 @@ const Welcome = () => {
             <span className="text-red-600 tracking-wider px-0.5">YOUTUBE</span>{' '}
             clone app
           </h2>
-          <div className="text-sm tracking-wider mb-8">
-            <p className="font-light text-sm pb-2">
-              Don't let anyone tell you that you can't do something. If you have
-              a dream, work hard and make it a reality -{' '}
-              <span className="welcome font-bold tracking-widest">Unknown</span>{' '}
+          <div className="mb-6">
+            <p>
+              <span className="font-light text-xs font-mono opacity-90">
+                Don't let anyone tell you that you can't do something. If you
+                have a dream, work hard and make it a reality -{' '}
+              </span>
+              <span className="welcome inline font-bold tracking-widest">
+                Unknown
+              </span>{' '}
             </p>
-            <p className="font-light text-sm">
-              Dreams are achieved through consistent practice, and how to
-              practice efficiently is what this app provides. let's help you
-              customize your journey -{' '}
-              <span className="welcome font-bold tracking-widest">iTube</span>{' '}
+            <hr className="line my-3 border-none outline-none h-lineHeight w-full pb-pbot" />
+            <p>
+              <span className="font-light font-mono text-xs opacity-90">
+                Dreams are achieved through consistent practice, and how to
+                practice efficiently is what this app provides. let's help you
+                customize your journey -{' '}
+              </span>
+              <span className="welcome inline font-bold tracking-widest">
+                iTube
+              </span>{' '}
             </p>
           </div>
           <div flex items-center gap-6 text-xs font-mono>
@@ -36,10 +45,10 @@ const Welcome = () => {
                 Login
               </button>
             </Link>
-            <p className="py-2 mt-2 font-light text-sm">
+            <p className="py-2 mt-2 font-light text-sm w-full text-center">
               Don't have an account?{' '}
               <Link
-                className="pl-1 welcome hover:bg-[#3a47d5]"
+                className="pl-1 welcome hover:bg-fuchsia-500 hover:bg-gradient-to-l"
                 to={'/register'}
               >
                 Register here
