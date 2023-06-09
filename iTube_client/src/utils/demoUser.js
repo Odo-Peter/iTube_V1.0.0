@@ -1,74 +1,79 @@
+import { HiMusicNote } from 'react-icons/hi';
+import { GiGamepad } from 'react-icons/gi';
+import { MdOndemandVideo, MdCode, MdPersonalVideo } from 'react-icons/md';
+import { FaHome, FaUserGraduate } from 'react-icons/fa';
+
 export const demoUser = [
   {
-    name: 'Hip Pop',
+    name: 'Home',
     value: 'trending hip hop music videos',
     id: '1',
-    icon: 'H',
+    icon: <FaHome />,
   },
   {
     name: 'Trending Musics',
     value: 'trending musics charts',
     id: '2',
-    icon: 'T', //react icons - home icon
+    icon: <HiMusicNote />,
   },
   {
     name: 'Gaming Competition',
     value: 'EA sports gaming competition',
     id: '3',
-    icon: 'C', //react icons - home icon
+    icon: <GiGamepad />,
   },
   {
     name: 'Retro Games',
     value: 'old school retro games',
     id: '4',
-    icon: 'R', //react icons - home icon
+    icon: <GiGamepad />,
   },
   {
     name: 'AOT',
     value: 'attack on titans anime',
     id: '5',
-    icon: 'A', //react icons - home icon
+    icon: <MdOndemandVideo />,
   },
   {
     name: 'One Piece',
     value: 'one piece anime',
     id: '6',
-    icon: 'O', //react icons - home icon
+    icon: <MdOndemandVideo />,
   },
   {
     name: 'Coding Reviews',
     value: 'popular coding languages reviews',
     id: '7',
-    icon: 'C', //react icons - home icon
+    icon: <MdCode />,
   },
   {
     name: 'Web Dev',
     value: 'web development and coding',
     id: '8',
-    icon: 'W', //react icons - home icon
+    icon: <MdCode />,
   },
   {
     name: 'Khan Academy',
     value: 'popular khan academy videos',
     id: '9',
-    icon: 'K', //react icons - home icon
+    icon: <FaUserGraduate />,
   },
   {
     name: 'Veritasium',
     value: 'popular videos on veritasium',
     id: '10',
-    icon: 'V', //react icons - home icon
+    icon: <FaUserGraduate />,
   },
   {
     name: 'Crime Trailers',
     value: 'popular crime movies trailers',
     id: '11',
-    icon: 'C', //react icons - home icon
+    icon: <MdPersonalVideo />,
   },
   {
     name: 'Sci-fi Trailers',
     value: 'popular sci-fi movies trailers',
     id: '12',
-    icon: 'S', //react icons - home icon
+    icon: <MdPersonalVideo />,
   },
 ];

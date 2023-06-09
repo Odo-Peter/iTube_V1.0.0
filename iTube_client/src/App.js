@@ -6,7 +6,7 @@ import Login from './pages/Login';
 
 const App = () => {
   return (
-    <main className="flex flex-col h-screen w-screen bg-slate-950 text-white pb-6 overflow-hidden">
+    <main className="flex flex-col h-screen w-screen bg-slate-950 text-white pb-6 overflow-auto">
       <Routes>
         <Route path="/" element={<Feed />} />
         <Route path="/register" element={<Register />} />

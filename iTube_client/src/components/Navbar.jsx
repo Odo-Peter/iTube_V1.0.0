@@ -5,7 +5,7 @@ import SearchField from './SearchField';
 
 const Navbar = ({ loginState, registerState, bothStates, userState }) => {
   return (
-    <nav className="flex items-center bg-slate-950 justify-between py-2.5 pl-10 mb-0.5 w-full sticky top-0 left-0 shadows z-50">
+    <nav className="flex items-center bg-slate-950 justify-between py-2 pl-10 mb-0.5 w-full sticky top-0 left-0 shadows z-50">
       <div>
         <div className="flex gap-2">
           <div className="h-5 w-5">
@@ -13,7 +13,7 @@ const Navbar = ({ loginState, registerState, bothStates, userState }) => {
               <img src={logo} alt="logo" />
             </Link>
           </div>
-          <h1 className="font-bold tracking-wider">iTube</h1>
+          <h1 className="welcome font-bold tracking-wider">iTube</h1>
         </div>
         <p className="text-vxs text-slate-300 font-thin italic">
           Make Youtube jealous
