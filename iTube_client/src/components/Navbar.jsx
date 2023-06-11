@@ -3,9 +3,17 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/video.png';
 import SearchField from './SearchField';
 
-const Navbar = ({ loginState, registerState, bothStates, userState }) => {
+const Navbar = ({
+  loginState,
+  registerState,
+  bothStates,
+  userState,
+  position,
+}) => {
   return (
-    <nav className="flex items-center bg-slate-950 justify-between py-2 pl-10 mb-0.5 w-full sticky top-0 left-0 shadows z-50">
+    <nav
+      className={`flex items-center bg-slate-950 justify-between py-2 pl-10 w-[100vw] ${position} top-0 left-0 shadows z-50`}
+    >
       <div>
         <div className="flex gap-2">
           <div className="h-5 w-5">

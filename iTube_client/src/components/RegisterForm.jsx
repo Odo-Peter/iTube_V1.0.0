@@ -70,9 +70,9 @@ const RegisterForm = () => {
         </form>
       </div>
       <div className="mt-40 w-full text-center pr-16">
-        <button className="py-1.5 w-4/5 h-auto bg-gradient-to-r from-cyan-600 to-blue-600 rounded-md hover:bg-fuchsia-500 hover:bg-gradient-to-l text-sm font-mono mb-2">
+        {/* <button className="py-1.5 w-4/5 h-auto bg-gradient-to-r from-cyan-600 to-blue-600 rounded-md hover:bg-fuchsia-500 hover:bg-gradient-to-l text-sm font-mono mb-2">
           Register with a demo user
-        </button>
+        </button> */}
         <h1 className="text-6xl font-bold pt-4 leading-2">
           <span className="welcome">Trust us, it'll be love at first</span>{' '}
           <br /> <TextAnimation text={'sight'} />{' '}

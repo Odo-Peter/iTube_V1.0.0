@@ -8,12 +8,15 @@ const Login = () => {
   const [loginState] = useState(true);
   return (
     <section className="relative">
-      <Navbar loginState={loginState} />
+      <Navbar loginState={loginState} position={'sticky'} />
       <div className="flex flex-row-reverse justify-center gap-14 items-start px-16">
         <div className="flex flex-col justify-center items-center rounded-md w-full m-auto">
-          <button className="py-1.5 w-4/5 h-auto bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-md hover:bg-fuchsia-600 hover:bg-gradient-to-l text-sm font-mono mb-2">
+          <Link
+            to={'/'}
+            className="py-1.5 w-4/5 h-auto text-center bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-md hover:bg-fuchsia-600 hover:bg-gradient-to-l text-sm font-mono mb-2"
+          >
             Login with a demo user
-          </button>
+          </Link>
           <img src={coder} alt="coder-guy" className="rounded-md w-4/5" />
         </div>
         <div className="flex flex-col justify-start items-center min-h-screen py-4 w-full">

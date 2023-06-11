@@ -4,17 +4,27 @@ import Welcome from '../components/Welcome';
 import Homepage from '../components/Homepage';
 
 const Feed = () => {
-  const [user] = useState('Odo Peter');
+  const [user, setUser] = useState(null);
   const [bothStates] = useState(true);
+
+  const handleDemoUser = (e) => {
+    e.preventDefault();
+    setUser('Odo');
+  };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    setUser(null);
+  };
   return (
     <section>
       {user === null ? (
         <>
           <Navbar bothStates={bothStates} />
-          <Welcome />
+          <Welcome useDemoUser={handleDemoUser} />
         </>
       ) : (
-        <Homepage user={user} />
+        <Homepage user={user} handleLogout={handleLogout} />
       )}
     </section>
   );

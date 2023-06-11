@@ -9,7 +9,7 @@ const Register = () => {
   const [registerState] = useState(true);
   return (
     <section className="flex flex-col overflow overflow-y-auto overflow-x-hidden">
-      <Navbar registerState={registerState} />
+      <Navbar registerState={registerState} position={'sticky'} />
 
       <div className=" flex flex-col mx-20 pt-12">
         <div className="flex justify-between items-start">

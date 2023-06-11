@@ -6,7 +6,7 @@ import { FaHome, FaUserGraduate } from 'react-icons/fa';
 export const demoUser = [
   {
     name: 'Home',
-    value: 'trending hip hop music videos',
+    value: 'old school hip hop music videos',
     id: '1',
     icon: <FaHome />,
   },
@@ -35,8 +35,8 @@ export const demoUser = [
     icon: <MdOndemandVideo />,
   },
   {
-    name: 'One Piece',
-    value: 'one piece anime',
+    name: 'Jujustu Kaisen',
+    value: 'jujustu kaisen anime',
     id: '6',
     icon: <MdOndemandVideo />,
   },

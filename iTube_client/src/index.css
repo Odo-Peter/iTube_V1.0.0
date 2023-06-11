@@ -47,6 +47,10 @@
   border-bottom: solid 0.2px rgba(250, 250, 250, 0.04);
 }
 
+.thin3 {
+  border-top: solid 1px rgba(250, 250, 250, 0.04);
+}
+
 .card {
   border: solid 0.2px rgba(250, 250, 250, 0.04);
 }
@@ -67,6 +71,12 @@
 .btn:hover {
   cursor: pointer;
   background: -webkit-linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+}
+
+.player {
+  position: fixed;
+  top: 3.5rem;
+  left: 1rem;
 }
 
 @tailwind base;
