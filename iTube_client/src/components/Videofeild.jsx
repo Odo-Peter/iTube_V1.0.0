@@ -3,7 +3,7 @@ import VideoCard from './VideoCard';
 import youtubeServices from '../services/youtube';
 import Loader from '../Animations/Loader';
 
-const Videofeild = ({ text, categoryValue }) => {
+const Videofeild = ({ text, categoryValue, vw, searchText, ml, mx }) => {
   const [videos, setVideos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,17 +31,21 @@ const Videofeild = ({ text, categoryValue }) => {
   return (
     <section className="flex flex-col overflow-x-hidden">
       {isLoading ? (
-        <div className="flex justify-center items-center h-sideBar w-[79vw]">
+        <div className={`flex justify-center items-center h-sideBar ${vw}`}>
           <Loader />
         </div>
       ) : (
         <>
-          <div className="flex items-center tracking-wider font-bold justify-start ml-2 pt-4 pl-8">
-            <h2>
-              <span className="text-red-600">{text} </span> videos
+          <div
+            className={`flex items-center tracking-wider font-bold justify-start ${ml} pt-4 pl-8`}
+          >
+            <h2 className="pb-2">
+              {searchText} <span className="text-red-600">{text} </span> videos
             </h2>
           </div>
-          <div className="flex items-center gap-6 justify-start flex-wrap mt-2 mx-auto pl-8">
+          <div
+            className={`flex items-center gap-6 justify-start flex-wrap mt-2 ${mx} pl-8`}
+          >
             {videos.map((video) => (
               <VideoCard key={video.videoId} video={video} />
             ))}

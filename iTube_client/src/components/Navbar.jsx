@@ -9,6 +9,9 @@ const Navbar = ({
   bothStates,
   userState,
   position,
+  handleSearch,
+  searchTerm,
+  handleSearchChange,
 }) => {
   return (
     <nav
@@ -58,7 +61,13 @@ const Navbar = ({
           </>
         )}
 
-        {userState && <SearchField />}
+        {userState && (
+          <SearchField
+            handleSearch={handleSearch}
+            searchTerm={searchTerm}
+            handleSearchChange={handleSearchChange}
+          />
+        )}
       </div>
     </nav>
   );

@@ -6,8 +6,6 @@ import { FaCheckCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const VideoCard = ({ video }) => {
-  // console.log(video);
-
   const truncate = (str, maxLength) => {
     if (str.length > maxLength) {
       return str.slice(0, maxLength) + '...';
@@ -19,7 +17,7 @@ const VideoCard = ({ video }) => {
   return (
     <div>
       <div className="card h-[19rem] w-cardWidth flex flex-col gap-3 justify-center items-start bg-slate-900 rounded-sm opacity-95 py-2 px-1 overflow-y-hidden">
-        <Link to={`video/${video?.videoId}`}>
+        <Link to={`video/${video.videoId}`}>
           <div className="flex justify-center items-center w-11/12 h-48 py-2 m-auto hover:cursor-pointer">
             <img
               className="h-full w-full object-cover"
@@ -70,7 +68,7 @@ const VideoCard = ({ video }) => {
               <div className="flex items-center gap-1">
                 <p className="text-xs opacity-70">
                   {video.channelTitle
-                    ? truncate(video?.channelTitle)
+                    ? truncate(video?.channelTitle, 16)
                     : 'Odo Peter Ebere'}
                 </p>
                 <span className="text-xs font-thin opacity-60">
@@ -83,7 +81,9 @@ const VideoCard = ({ video }) => {
               </p>
             </div>
             <p className="text-xs opacity-70 pb-2">
-              {video?.publishedTimeText}
+              {video?.publishedText
+                ? video?.publishedText
+                : video?.publishedTimeText}
             </p>
           </div>
         </div>

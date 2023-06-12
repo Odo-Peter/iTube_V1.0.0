@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-import demoImg from '../assets/welcome.gif';
 import Loader from '../Animations/Loader';
 import youTubeServices from '../services/youtube';
 import millify from 'millify';
@@ -41,9 +40,11 @@ const VideoDetails = () => {
     relatedVid();
   }, [id]);
 
-  // console.log(relatedVideos);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    console.log('search me!!!');
+  };
 
-  //   console.log(id);
   return (
     <section className="flex mt-4 w-full h-screen relative">
       {isLoading && !video ? (
@@ -53,7 +54,11 @@ const VideoDetails = () => {
       ) : (
         <>
           <div className="flex flex-col">
-            <Navbar userState={'Odo'} position={'fixed'} />
+            <Navbar
+              userState={'Odo'}
+              position={'fixed'}
+              handleSearch={handleSearch}
+            />
             <div className="flex justify-between gap-6 relative">
               <div className="player">
                 <ReactPlayer
