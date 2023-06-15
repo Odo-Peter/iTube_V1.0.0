@@ -1,7 +1,6 @@
-import React from 'react';
 import { gamingOptions } from '../utils/constants';
 
-const Gaming = () => {
+const Gaming = ({ handleGamingOptions, gamingChoice }) => {
   return (
     <div className="mb-16">
       <div className="flex flex-col justify-center items-center mb-4">
@@ -10,10 +9,11 @@ const Gaming = () => {
         <hr className="line2 flex m-auto my-4 border-none outline-none h-lineHeight w-full pb-pbot" />
       </div>
       <div className="flex items-center justify-center gap-10">
-        {gamingOptions[1][0].map((op) => (
+        {gamingOptions[1].map((op) => (
           <button
             key={op.id}
-            className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-[#e21a5c] to-[#eba714] rounded-md hover:bg-gradient-to-l"
+            className="btn-gradient2 py-1.5 font-mono w-48 h-auto rounded-md"
+            onClick={handleGamingOptions}
           >
             {op.name}
           </button>
@@ -21,49 +21,39 @@ const Gaming = () => {
       </div>
 
       <div className="flex items-center justify-center gap-10 mt-6">
-        {gamingOptions[1][1].map((op) => (
+        {gamingOptions[2].map((op) => (
           <button
             key={op.id}
-            className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-[#e21a5c] to-[#eba714] rounded-md hover:bg-gradient-to-l"
+            className="btn-gradient2 py-1.5 font-mono w-48 h-auto rounded-md"
+            onClick={handleGamingOptions}
           >
             {op.name}
           </button>
         ))}
       </div>
-      {/* <div className="flex items-center justify-center gap-10">
-        <button className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-[#e21a5c] to-[#eba714] rounded-md hover:bg-gradient-to-l">
-          Coding
-        </button>
-        <button className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-[#e21a5c] to-[#eba714] rounded-md hover:bg-gradient-to-l">
-          Education
-        </button>
-        <button className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-[#e21a5c] to-[#eba714] rounded-md hover:bg-gradient-to-l">
-          Movies
-        </button>
-        <button className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-[#e21a5c] to-[#eba714] rounded-md hover:bg-gradient-to-l">
-          Movies
-        </button>
-      </div>
-      <div className="flex items-center justify-center gap-10 mt-6">
-        <button className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-[#e21a5c] to-[#eba714] rounded-md hover:bg-gradient-to-l">
-          Coding
-        </button>
-        <button className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-[#e21a5c] to-[#eba714] rounded-md hover:bg-gradient-to-l">
-          Education
-        </button>
-        <button className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-[#e21a5c] to-[#eba714] rounded-md hover:bg-gradient-to-l">
-          Movies
-        </button>
-        <button className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-[#e21a5c] to-[#eba714] rounded-md hover:bg-gradient-to-l">
-          Movies
-        </button>
-      </div> */}
-      <div className="welcome flex justify-start items-center text-lg font-mono font-bold gap-6 pt-5">
-        <h2>
-          Your choices were:{' '}
-          <span className="text-1xl font-serif font-bold">[</span> Hip Hop and
-          Rock <span className="text-1xl font-serif font-bold">]</span>
-        </h2>
+      <div className="welcome flex justify-start items-center text-lg font-mono font-bold gap-6 pt-5 opacity-80">
+        {gamingChoice.length === 1 ? (
+          <h2>
+            Your choices were:{' '}
+            <span className="text-1xl font-serif font-bold">[</span>{' '}
+            {gamingChoice[0].name} and ...{' '}
+            <span className="text-1xl font-serif font-bold">]</span>
+          </h2>
+        ) : gamingChoice.length > 1 ? (
+          <h2>
+            Your choices were:{' '}
+            <span className="text-1xl font-serif font-bold">[</span>{' '}
+            {gamingChoice[0].name} and {gamingChoice[1].name}{' '}
+            <span className="text-1xl font-serif font-bold">]</span>
+          </h2>
+        ) : (
+          <h2>
+            Your choices are:{' '}
+            <span className="text-1xl font-serif font-bold">[</span> Click
+            buttons to add choices{' '}
+            <span className="text-1xl font-serif font-bold">]</span>
+          </h2>
+        )}
       </div>
     </div>
   );

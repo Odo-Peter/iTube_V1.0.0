@@ -7,7 +7,7 @@ const Sidebar = ({
 }) => {
   return (
     <div className="thin sticky left-0 top-14 flex flex-col w-56 justify-center h-sideBar gap-2.5 px-4">
-      <div className="flex flex-col gap-1.5">
+      <div className="flex flex-col gap-1.5 mb-1.5">
         {demoUser.map((op) => (
           <button
             key={`${op.id}${op.name}`}
@@ -30,7 +30,7 @@ const Sidebar = ({
         ))}
       </div>
 
-      <div className="thin3 flex justify-between items-center gap-2 mx-0.5 pt-2">
+      <div className="thin3 flex justify-between items-center gap-2 mx-0.5 pt-2 -mb-[4px]">
         <div className="flex flex-col justify-center items-start">
           <p className="text-vxs opacity-70 font-bold tracking-wide">
             Odo Peter Ebere

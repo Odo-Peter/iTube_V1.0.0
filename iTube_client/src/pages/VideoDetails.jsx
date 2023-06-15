@@ -6,11 +6,16 @@ import youTubeServices from '../services/youtube';
 import millify from 'millify';
 import VideoCard from '../components/VideoCard';
 import Navbar from '../components/Navbar';
+import Videofeild from '../components/Videofeild';
 
 const VideoDetails = () => {
   const [video, setVideo] = useState(null);
   const [relatedVideos, setRelatedVideos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const [search, setSearch] = useState('');
+  const [searchWord, setSearchWord] = useState('');
+  const [startSearch, setStartSearch] = useState(false);
 
   const { id } = useParams();
 
@@ -42,7 +47,13 @@ const VideoDetails = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log('search me!!!');
+    setStartSearch(true);
+    setSearchWord(search);
+    setSearch('');
+  };
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
   };
 
   return (
@@ -58,29 +69,46 @@ const VideoDetails = () => {
               userState={'Odo'}
               position={'fixed'}
               handleSearch={handleSearch}
+              handleSearchChange={handleSearchChange}
+              searchTerm={search}
             />
             <div className="flex justify-between gap-6 relative">
-              <div className="player">
-                <ReactPlayer
-                  url={`https://www.youtube.com/watch?v=${id}`}
-                  controls
-                  width={'72vw'}
-                  height={'80vh'}
-                  className="react-player"
+              {!startSearch ? (
+                <>
+                  <div className="player">
+                    <ReactPlayer
+                      url={`https://www.youtube.com/watch?v=${id}`}
+                      controls
+                      width={'72vw'}
+                      height={'80vh'}
+                      className="react-player"
+                    />
+                    <div className="flex flex-col w-playerWidth gap-2 mt-3">
+                      <p className="text-xs font-bold">{video?.title}</p>
+                      <p className="text-xs opacity-70">
+                        {video?.viewCount
+                          ? millify(Number(video?.viewCount))
+                          : '0'}{' '}
+                        views
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex flex-col absolute left-[75vw] top-[3rem] gap-4">
+                    {relatedVideos.map((video) => (
+                      <VideoCard key={video?.videoId} video={video} />
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <Videofeild
+                  searchText={'Search results for:'}
+                  text={searchWord}
+                  categoryValue={searchWord}
+                  vw="w-[100vw]"
+                  ml="ml-[8rem]"
+                  mx="ml-[8rem]"
                 />
-                <div className="flex flex-col w-playerWidth gap-2 mt-3">
-                  <p className="text-xs font-bold">{video?.title}</p>
-                  <p className="text-xs opacity-70">
-                    {video?.viewCount ? millify(Number(video?.viewCount)) : '0'}{' '}
-                    views
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col absolute left-[75vw] top-[3rem] gap-4">
-                {relatedVideos.map((video) => (
-                  <VideoCard key={video?.videoId} video={video} />
-                ))}
-              </div>
+              )}
             </div>
           </div>
         </>

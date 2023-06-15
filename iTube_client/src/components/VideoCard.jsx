@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import demoImg from '../assets/welcome.gif';
 import demo from '../assets/demo.jpg';
 import millify from 'millify';
 import { FaCheckCircle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const VideoCard = ({ video }) => {
+  const [isNavigated, setIsNavigated] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isNavigated) navigate(`/video/${video.videoId}`);
+  }, [isNavigated, video.videoId, navigate]);
+
   const truncate = (str, maxLength) => {
     if (str.length > maxLength) {
       return str.slice(0, maxLength) + '...';
@@ -14,28 +21,35 @@ const VideoCard = ({ video }) => {
     }
   };
 
+  const handleNavigate = (e) => {
+    e.preventDefault();
+    setIsNavigated(true);
+  };
+
   return (
     <div>
       <div className="card h-[19rem] w-cardWidth flex flex-col gap-3 justify-center items-start bg-slate-900 rounded-sm opacity-95 py-2 px-1 overflow-y-hidden">
-        <Link to={`video/${video.videoId}`}>
-          <div className="flex justify-center items-center w-11/12 h-48 py-2 m-auto hover:cursor-pointer">
-            <img
-              className="h-full w-full object-cover"
-              src={
-                video?.thumbnail && video?.thumbnail[3]
-                  ? video?.thumbnail[3]?.url
-                  : video?.thumbnail && video?.thumbnail[2]
-                  ? video?.thumbnail[2]?.url
-                  : video?.thumbnail && video?.thumbnail[1]
-                  ? video?.thumbnail[1]?.url
-                  : video?.thumbnail && video?.thumbnail[0]
-                  ? video?.thumbnail[0]?.url
-                  : demoImg
-              }
-              alt={'thumbnail'}
-            />
-          </div>
-        </Link>
+        <div
+          className="flex justify-center items-center w-11/12 h-48 py-2 m-auto hover:cursor-pointer"
+          onClick={handleNavigate}
+        >
+          <img
+            className="h-full w-full object-cover"
+            src={
+              video?.thumbnail && video?.thumbnail[3]
+                ? video?.thumbnail[3]?.url
+                : video?.thumbnail && video?.thumbnail[2]
+                ? video?.thumbnail[2]?.url
+                : video?.thumbnail && video?.thumbnail[1]
+                ? video?.thumbnail[1]?.url
+                : video?.thumbnail && video?.thumbnail[0]
+                ? video?.thumbnail[0]?.url
+                : demoImg
+            }
+            alt={'thumbnail'}
+          />
+        </div>
+
         <div className="h-24 flex flex-col gap-5 w-11/12 ml-3">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-full">
@@ -57,11 +71,12 @@ const VideoCard = ({ video }) => {
                 className="w-full h-full rounded-full hover:cursor-pointer"
               />
             </div>
-            <Link to={`video/${video.videoId}`}>
-              <p className="text-xs opacity-80 font-bold hover:cursor-pointer">
-                {video?.title ? truncate(video?.title, 22) : 'Odo Peter Ebere'}
-              </p>
-            </Link>
+            <p
+              className="text-xs opacity-80 font-bold hover:cursor-pointer"
+              onClick={handleNavigate}
+            >
+              {video?.title ? truncate(video?.title, 22) : 'Odo Peter Ebere'}
+            </p>
           </div>
           <div className="flex flex-col gap-1">
             <div className="flex items-center justify-between">

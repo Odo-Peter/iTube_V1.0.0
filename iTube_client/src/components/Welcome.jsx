@@ -29,20 +29,34 @@ const Welcome = ({ useDemoUser }) => {
             clone app
           </h2>
           <div className="mb-6">
-            <p>
-              <span className="font-light text-sm font-mono opacity-90">
-                {dailyQuotes.text} -{' '}
-              </span>
-              <span className="welcome inline font-bold tracking-widest">
-                {dailyQuotes.author}
-              </span>{' '}
-            </p>
+            {dailyQuotes ? (
+              <p>
+                <span className="font-light text-sm font-mono opacity-90">
+                  {dailyQuotes.text} -{' '}
+                </span>
+                <span className="welcome inline font-bold tracking-widest">
+                  {dailyQuotes.author}
+                </span>{' '}
+              </p>
+            ) : (
+              <p>
+                <span className="font-light text-sm font-mono opacity-90">
+                  A motivational quotes is supposed to show here, try checking
+                  your network connections and try again -{' '}
+                </span>
+                <span className="welcome inline font-bold tracking-widest">
+                  Odo Peter from iTube :)
+                </span>{' '}
+              </p>
+            )}
+
             <hr className="line my-3 border-none outline-none h-lineHeight w-full pb-pbot" />
             <p>
               <span className="font-light font-mono text-sm opacity-90">
-                Dreams are achieved through consistent practice, and how to
-                practice efficiently is what this app provides. let's help you
-                customize your journey -{' '}
+                Dreams are achieved through consistent practice and steady
+                grinding, also, sometimes, it pays to stay in bed on Monday,
+                rather than spending the rest of the week debugging Monday's
+                code -{' '}
               </span>
               <span className="welcome inline font-bold tracking-widest">
                 iTube
@@ -60,7 +74,7 @@ const Welcome = ({ useDemoUser }) => {
               Don't have an account?{' '}
               <Link
                 className="pl-1 welcome hover:bg-fuchsia-500 hover:bg-gradient-to-l"
-                to={'/register'}
+                to={'/auth/sign_up'}
               >
                 Register here
               </Link>

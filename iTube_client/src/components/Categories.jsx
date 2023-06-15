@@ -1,4 +1,4 @@
-import React from 'react';
+// import React, { useEffect, useState } from 'react';
 import Music from './Music';
 import Gaming from './Gaming';
 import welcome from '../assets/welcome.gif';
@@ -8,33 +8,67 @@ import Education from './Education';
 import Movies from './Movies';
 import { homeOptions } from '../utils/constants';
 
-const Categories = () => {
+const Categories = ({
+  handleHomeValue,
+  optionsForHome,
+  musicChoice,
+  handleMusicOptions,
+  gamingChoice,
+  handleGamingOptions,
+  animeChoice,
+  handleAnimeOptions,
+  codingChoice,
+  handleCodingOptions,
+  educationChoice,
+  handleEducationOptions,
+  moviesChoice,
+  handleMoviesOptions,
+}) => {
   return (
     <section className="flex flex-col justify-center items-center mt-4">
       <div className="flex flex-col w-full text-center">
         <h3 className="text-4xl font-bold mb-8">
-          Choose your default <span className="text-red-500">home video</span>{' '}
+          Choose your default <span className="text-red-600">home video</span>{' '}
           category
         </h3>
         <div className="flex items-center justify-center gap-10 mb-8">
-          {homeOptions[0][0].map((op) => (
+          {homeOptions[1].map((op) => (
             <button
               key={`${op.id}${op.name}`}
-              className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-[#e21a5c] to-[#eba714] rounded-md hover:bg-gradient-to-l"
+              className="btn-gradient py-1.5 font-mono w-48 h-auto rounded-md"
+              onClick={handleHomeValue}
             >
               {op.name}
             </button>
           ))}
         </div>
         <div className="flex items-center justify-center gap-10">
-          {homeOptions[0][1].map((op) => (
+          {homeOptions[2].map((op) => (
             <button
               key={`${op.id}${op.name}`}
-              className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-[#e21a5c] to-[#eba714] rounded-md hover:bg-gradient-to-l"
+              className="btn-gradient py-1.5 font-mono w-48 h-auto rounded-md"
+              onClick={handleHomeValue}
             >
               {op.name}
             </button>
           ))}
+        </div>
+        <div className="pinkish flex justify-center items-center text-lg font-mono font-bold gap-6 pt-5 opacity-80">
+          {optionsForHome.length === 1 ? (
+            <h2>
+              Your default home choice is:{' '}
+              <span className="text-1xl font-serif font-bold">[</span>{' '}
+              {optionsForHome[0].name}{' '}
+              <span className="text-1xl font-serif font-bold">]</span>
+            </h2>
+          ) : (
+            <h2>
+              Your default home choice is:{' '}
+              <span className="text-1xl font-serif font-bold">[</span> Click
+              buttons to add a choice{' '}
+              <span className="text-1xl font-serif font-bold">]</span>
+            </h2>
+          )}
         </div>
         <div className="flex justify-center items-center mb-4 mt-8 pt-8">
           <img src={welcome} alt="welcome" className="rounded-md" />
@@ -50,12 +84,30 @@ const Categories = () => {
               would be populated
             </p>
           </div>
-          <Music />
-          <Gaming />
-          <Anime />
-          <Coding />
-          <Education />
-          <Movies />
+          <Music
+            musicChoice={musicChoice}
+            handleMusicOptions={handleMusicOptions}
+          />
+          <Gaming
+            gamingChoice={gamingChoice}
+            handleGamingOptions={handleGamingOptions}
+          />
+          <Anime
+            animeChoice={animeChoice}
+            handleAnimeOptions={handleAnimeOptions}
+          />
+          <Coding
+            codingChoice={codingChoice}
+            handleCodingOptions={handleCodingOptions}
+          />
+          <Education
+            educationChoice={educationChoice}
+            handleEducationOptions={handleEducationOptions}
+          />
+          <Movies
+            moviesChoice={moviesChoice}
+            handleMoviesOptions={handleMoviesOptions}
+          />
         </div>
       </div>
     </section>

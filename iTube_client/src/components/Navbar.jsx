@@ -32,14 +32,14 @@ const Navbar = ({
       </div>
       <div className="flex items-center gap-6 text-xs pr-16 font-mono">
         {loginState && (
-          <Link to={'/register'}>
+          <Link to={'/auth/sign_up'}>
             <button className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md hover:bg-gradient-to-l">
               Register
             </button>
           </Link>
         )}
         {registerState && (
-          <Link to={'/login'}>
+          <Link to={'/auth/sign_in'}>
             <button className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-md hover:bg-fuchsia-500 hover:bg-gradient-to-l">
               Login
             </button>
@@ -48,12 +48,12 @@ const Navbar = ({
 
         {bothStates && (
           <>
-            <Link to={'/register'}>
+            <Link to={'/auth/sign_up'}>
               <button className="py-1.5 w-20 font-mono h-auto bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md hover:bg-gradient-to-l">
                 Register
               </button>
             </Link>
-            <Link to={'/login'}>
+            <Link to={'/auth/sign_in'}>
               <button className="py-1.5 w-20 font-mono h-auto bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-md hover:bg-fuchsia-500 hover:bg-gradient-to-l">
                 Login
               </button>
