@@ -157,7 +157,7 @@ export const animeOptions = [
       id: 3,
     },
     {
-      name: 'AOT',
+      name: 'Attack On Titans',
       value: 'attack on titans anime',
       id: 4,
     },

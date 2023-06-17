@@ -2,9 +2,15 @@ import { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import Videofeild from './Videofeild';
-import { demoUser } from '../utils/demoUser';
 
-const Homepage = ({ user, handleLogout }) => {
+import { HiMusicNote } from 'react-icons/hi';
+import { GiGamepad } from 'react-icons/gi';
+import { MdOndemandVideo, MdCode, MdPersonalVideo } from 'react-icons/md';
+import { FaHome, FaUserGraduate } from 'react-icons/fa';
+
+const Homepage = ({ user, demoUser, handleLogout }) => {
+  // const [user, setUser] = useState(null);
+
   const [category, setCategory] = useState('');
   const [search, setSearch] = useState('');
   const [searchWord, setSearchWord] = useState('');
@@ -13,6 +19,26 @@ const Homepage = ({ user, handleLogout }) => {
   useEffect(() => {
     setCategory('Home');
   }, []);
+
+  if (user) {
+    user?.options.map((op) => {
+      return op.icon === '<FaHome />'
+        ? (op.icon = <FaHome />)
+        : op.icon === '<HiMusicNote />'
+        ? (op.icon = <HiMusicNote />)
+        : op.icon === '<GiGamepad />'
+        ? (op.icon = <GiGamepad />)
+        : op.icon === '<MdOndemandVideo />'
+        ? (op.icon = <MdOndemandVideo />)
+        : op.icon === '<MdCode />'
+        ? (op.icon = <MdCode />)
+        : op.icon === '<FaUserGraduate />'
+        ? (op.icon = <FaUserGraduate />)
+        : op.icon === '<MdPersonalVideo />'
+        ? (op.icon = <MdPersonalVideo />)
+        : '';
+    });
+  }
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -25,20 +51,20 @@ const Homepage = ({ user, handleLogout }) => {
     setSearch(e.target.value);
   };
 
-  const filtered = demoUser.filter((value) => value.name === category);
-  // console.log(filtered[0]?.value);
+  const filtered = user
+    ? user?.options.filter((value) => value.name === category)
+    : demoUser?.options.filter((value) => value.name === category);
   const categoryValue = filtered[0]?.value;
 
   const handleCategory = (e) => {
     e.preventDefault();
     setCategory(e.target.innerText);
   };
-  // console.log(search);
 
   return (
     <section>
       <Navbar
-        userState={user}
+        userState={user ? user : demoUser}
         position={'sticky'}
         handleSearch={handleSearch}
         handleSearchChange={handleSearchChange}
@@ -52,6 +78,7 @@ const Homepage = ({ user, handleLogout }) => {
                 handleLogout={handleLogout}
                 selectedCategory={category}
                 handleSelectedCategory={handleCategory}
+                userOptions={user ? user?.options : demoUser?.options}
               />
             </div>
             <div>

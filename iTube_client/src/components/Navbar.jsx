@@ -27,7 +27,7 @@ const Navbar = ({
           <h1 className="welcome font-bold tracking-wider">iTube</h1>
         </div>
         <p className="text-vxs text-slate-300 font-thin italic">
-          Make Youtube jealous
+          ...Redefining Youtube API
         </p>
       </div>
       <div className="flex items-center gap-6 text-xs pr-16 font-mono">

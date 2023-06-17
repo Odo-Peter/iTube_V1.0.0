@@ -13,6 +13,8 @@ const errorHandler = (err, req, res, next) => {
     return res.status(400).json({ error: 'Invalid token' });
   else if (err.name === 'TokenExpiredError')
     return res.status(400).json({ error: 'Token expired' });
+  else if (err.name === 'MongoServerError')
+    return res.status(500).json({ error: 'Invalid username' });
 
   next(err);
 };

@@ -16,14 +16,8 @@ const getVideos = async (route, query) => {
       'X-RapidAPI-Host': 'youtube-v3-alternative.p.rapidapi.com',
     },
   };
-
-  try {
-    const { data } = await axios.request(options);
-    // console.log(data);
-    return data;
-  } catch (error) {
-    console.log('something went wrong', error);
-  }
+  const { data } = await axios.request(options);
+  return data;
 };
 
 const getVideoDetail = async (route, videoID) => {
@@ -38,13 +32,8 @@ const getVideoDetail = async (route, videoID) => {
       'X-RapidAPI-Host': 'youtube-v3-alternative.p.rapidapi.com',
     },
   };
-  try {
-    const { data } = await axios.request(options);
-    // console.log(data);
-    return data;
-  } catch (error) {
-    console.log('something went wrong', error);
-  }
+  const { data } = await axios.request(options);
+  return data;
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export

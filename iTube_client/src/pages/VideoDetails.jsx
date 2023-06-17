@@ -72,7 +72,7 @@ const VideoDetails = () => {
               handleSearchChange={handleSearchChange}
               searchTerm={search}
             />
-            <div className="flex justify-between gap-6 relative">
+            <div className="flex justify-between gap-12 relative">
               {!startSearch ? (
                 <>
                   <div className="player">
@@ -93,21 +93,28 @@ const VideoDetails = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="flex flex-col absolute left-[75vw] top-[3rem] gap-4">
+                  <div className="flex flex-col absolute left-[77vw] top-[3rem] gap-4">
                     {relatedVideos.map((video) => (
                       <VideoCard key={video?.videoId} video={video} />
                     ))}
                   </div>
                 </>
               ) : (
-                <Videofeild
-                  searchText={'Search results for:'}
-                  text={searchWord}
-                  categoryValue={searchWord}
-                  vw="w-[100vw]"
-                  ml="ml-[8rem]"
-                  mx="ml-[8rem]"
-                />
+                <div>
+                  <h2 className="pb-2">
+                    {' '}
+                    Search results for:
+                    <span className="text-red-600">{searchWord} </span> videos
+                  </h2>
+                  <Videofeild
+                    searchText={'Search results for:'}
+                    text={searchWord}
+                    categoryValue={searchWord}
+                    vw="w-[100vw]"
+                    ml="ml-[8rem]"
+                    mx="ml-[8rem]"
+                  />
+                </div>
               )}
             </div>
           </div>

@@ -13,9 +13,16 @@ import {
   moviesOptions,
 } from '../utils/constants';
 import Categories from '../components/Categories';
+import userServices from '../services/users';
+import { useNavigate } from 'react-router-dom';
+import Error from '../components/Error';
+import Success from '../components/Success';
 
 const Register = () => {
   const [registerState] = useState(true);
+  const [isRegistering, setIsRegistering] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
   //<==== I know shiii is becoming messy, redux would be better ======>//
   // Buh I know not Redux :(
 
@@ -52,6 +59,8 @@ const Register = () => {
   const [lastname, setLastname] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
 
   //to prevent infinite loops, for any of the provided components
   useEffect(() => {
@@ -470,27 +479,176 @@ const Register = () => {
     setPassword(e.target.value);
   };
 
-  const results = [
-    ...homeList,
-    ...musicList,
-    ...gamingList,
-    ...animeList,
-    ...codingList,
-    ...educationList,
-    ...moviesList,
-  ];
+  const options =
+    homeList.length >= 0 &&
+    musicList.length > 0 &&
+    gamingList.length > 0 &&
+    animeList.length > 0 &&
+    codingList.length > 0 &&
+    educationList.length > 0 &&
+    moviesList.length > 0
+      ? [
+          {
+            icon: '<FaHome />',
+            name: 'Home',
+            value: homeList[0]?.value,
+            id: 1,
+          },
+          {
+            icon: '<HiMusicNote />',
+            name: musicList[0]?.name,
+            value: musicList[0]?.value,
+            id: 2,
+          },
+          {
+            icon: '<HiMusicNote />',
+            name: musicList[1]?.name || 'Hip Pop',
+            value: musicList[1]?.value || 'Best hip pop songs of all time',
+            id: 2,
+          },
+          {
+            icon: '<GiGamepad />',
+            name: gamingList[0]?.name,
+            value: gamingList[0]?.value,
+            id: 3,
+          },
+          {
+            icon: '<GiGamepad />',
+            name: gamingList[1]?.name || 'Reviews',
+            value: gamingList[1]?.value || 'Best ps5 games reviews',
+            id: 3,
+          },
+          {
+            icon: '<MdOndemandVideo />',
+            name: animeList[0]?.name,
+            value: animeList[0]?.value,
+            id: 4,
+          },
+          {
+            icon: '<MdOndemandVideo />',
+            name: animeList[1]?.name || 'One Piece',
+            value: animeList[1]?.value || 'review of one piece anime',
+            id: 4,
+          },
+          {
+            icon: '<MdCode />',
+            name: codingList[0]?.name,
+            value: codingList[0]?.value,
+            id: 5,
+          },
+          {
+            icon: '<MdCode />',
+            name: codingList[1]?.name || 'Web Dev',
+            value: codingList[1]?.value || 'review of the javascript language',
+            id: 5,
+          },
+          {
+            icon: '<FaUserGraduate />',
+            name: educationList[0]?.name,
+            value: educationList[0]?.value,
+            id: 6,
+          },
+          {
+            icon: '<FaUserGraduate />',
+            name: educationList[1]?.name || 'FreeCode Camp',
+            value: educationList[1]?.value || 'freecode camp javascript',
+            id: 6,
+          },
+          {
+            icon: '<MdPersonalVideo />',
+            name: moviesList[0]?.name,
+            value: moviesList[0]?.value,
+            id: 7,
+          },
+          {
+            icon: '<MdPersonalVideo />',
+            name: moviesList[1]?.name || 'Crime Trailers',
+            value: moviesList[1]?.value || 'best box office trailers',
+            id: 7,
+          },
+        ]
+      : '';
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
-    setFirstname('');
-    setLastname('');
-    setUsername('');
-    setPassword('');
+    if (
+      username === '' ||
+      password === '' ||
+      firstname === '' ||
+      lastname === ''
+    ) {
+      setErrorMessage('Ooops, all fields are required');
+      setTimeout(() => {
+        setErrorMessage(null);
+      }, 6000);
+    }
 
-    console.log('submitted biyatch');
-    console.log(firstname, lastname, username, password);
-    console.log(results);
+    if (
+      !homeList[0] ||
+      !musicList[1] ||
+      !gamingList[1] ||
+      !animeList[1] ||
+      !codingList[1] ||
+      !educationList[1] ||
+      !moviesList[1]
+    ) {
+      setErrorMessage('Uhmm, select your prefered categories to proceed');
+      setTimeout(() => {
+        setErrorMessage(null);
+      }, 5000);
+    }
+    setIsRegistering(true);
+
+    try {
+      const user = await userServices.createUser({
+        firstname,
+        lastname,
+        username,
+        password,
+        options,
+      });
+
+      if (user) {
+        setSuccessMessage(
+          `Adding ${user.username} to the iTube family :) .... `
+        );
+
+        setFirstname('');
+        setLastname('');
+        setUsername('');
+        setPassword('');
+
+        setTimeout(() => {
+          setIsRegistering(false);
+          setSuccessMessage(null);
+          navigate('/auth/sign_in');
+        }, 6000);
+      }
+      console.log(user);
+    } catch (err) {
+      setIsRegistering(false);
+      console.log(err);
+      if (err.response.data.error === 'password should be above 3 characters') {
+        setErrorMessage(
+          "Let's keep you secured :) , password should be more than 3 characters"
+        );
+        setTimeout(() => {
+          setErrorMessage(null);
+        }, 6000);
+      }
+      if (err.response.data.error === 'Invalid username') {
+        setErrorMessage(
+          `${username} has already being taken, use a unique name, try using "${username}${Math.floor(
+            Math.random() * 30
+          )}"`
+        );
+        setTimeout(() => {
+          setErrorMessage(null);
+        }, 6000);
+      }
+    }
+    console.log(options);
   };
 
   return (
@@ -557,17 +715,42 @@ const Register = () => {
           handleLastName={handleLastName}
           handleUsername={handleUsername}
           handlePassword={handlePassword}
-          // handleFormSubmit={handleFormSubmit}
+          firstname={firstname}
+          lastname={lastname}
+          username={username}
+          password={password}
         />
       </div>
-      <div className="flex justify-center items-center pb-16 w-full mx-auto">
-        <button
-          className="py-1.5 font-mono w-[45%] h-auto bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-md hover:bg-fuchsia-500 hover:bg-gradient-to-l"
-          onClick={handleRegister}
-        >
-          Submit Details
-        </button>
+      <div className="flex justify-center items-center pb-12 w-full mx-auto">
+        {isRegistering ? (
+          <button className="py-1.5 font-mono w-[45%] h-auto bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-md hover:bg-fuchsia-500 hover:bg-gradient-to-l opacity-80 cursor-not-allowed">
+            Submiting Details ...
+          </button>
+        ) : (
+          <button
+            className="py-1.5 font-mono w-[45%] h-auto bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-md hover:bg-fuchsia-500 hover:bg-gradient-to-l"
+            onClick={handleRegister}
+          >
+            Submit Details
+          </button>
+        )}
       </div>
+
+      {errorMessage && (
+        <div className="flex justify-center items-center w-[70%] mx-auto">
+          <div className="absolute z-50 top-20 w-[70%] p-2 mb-8 bg-slate-700 border-b-2 border-[red] rounded-md text-center">
+            <Error message={errorMessage} />
+          </div>
+        </div>
+      )}
+
+      {successMessage && (
+        <div className="flex justify-center items-center w-[70%] mx-auto">
+          <div className="absolute z-50 top-20 w-[70%] p-2 mb-8 bg-slate-700 border-b-2 border-[green] rounded-md text-center">
+            <Success message={successMessage} />
+          </div>
+        </div>
+      )}
 
       <div className="flex flex-col justify-center items-center text-xs opacity-80 py-4 gap-1">
         <p>Made With 💚💙💜 by Odo Peter Ebere </p>

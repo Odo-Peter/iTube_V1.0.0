@@ -35,7 +35,6 @@ const userSchema = mongoose.Schema(
     passwordHash: {
       type: String,
       required: true,
-      minLength: 3,
     },
     options: [optionsSchema],
   },

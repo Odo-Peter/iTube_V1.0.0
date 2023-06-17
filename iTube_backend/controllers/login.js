@@ -18,11 +18,11 @@ loginRouter.post('/', async (req, res) => {
 
   const userDetails = {
     username: user.username,
-    id: user._id,
+    id: user.id,
   };
 
   const token = jwt.sign(userDetails, process.env.CRYPTO_KEY, {
-    expiresIn: 60 * 60,
+    expiresIn: '24h',
   });
 
   res.status(200).send({
@@ -30,6 +30,7 @@ loginRouter.post('/', async (req, res) => {
     username: user.username,
     firstname: user.firstname,
     lastname: user.lastname,
+    options: user.options,
   });
 });
 

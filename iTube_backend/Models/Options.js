@@ -1,65 +1,91 @@
 const { Schema, model } = require('mongoose');
 
-const reOcurringSchema = Schema({
-  icon: String,
-  id: Number,
-  name: String,
-  value: String,
-});
+// const reOcurringSchema = Schema({
+//   icon: String,
+//   id: Number,
+//   name: String,
+//   value: String,
+// });
 
-const optionsSchema = Schema({
-  homeOptions: {
-    type: reOcurringSchema,
-    required: true,
+const optionsSchema = Schema(
+  {
+    icon: String,
+    id: Number,
+    name: String,
+    value: String,
   },
-  musicOptionsOne: {
-    type: reOcurringSchema,
-    required: true,
+  {
+    icon: String,
+    id: Number,
+    name: String,
+    value: String,
   },
-  musicOptionsTwo: {
-    type: reOcurringSchema,
-    required: true,
+  {
+    icon: String,
+    id: Number,
+    name: String,
+    value: String,
   },
-  gamingOptionsOne: {
-    type: reOcurringSchema,
-    required: true,
+  {
+    icon: String,
+    id: Number,
+    name: String,
+    value: String,
   },
-  gamingOptionsTwo: {
-    type: reOcurringSchema,
-    required: true,
+  {
+    icon: String,
+    id: Number,
+    name: String,
+    value: String,
   },
-  animeOptionsOne: {
-    type: reOcurringSchema,
-    required: true,
+  {
+    icon: String,
+    id: Number,
+    name: String,
+    value: String,
   },
-  animeOptionsTwo: {
-    type: reOcurringSchema,
-    required: true,
+  {
+    icon: String,
+    id: Number,
+    name: String,
+    value: String,
   },
-  codingOptionsOne: {
-    type: reOcurringSchema,
-    required: true,
+  {
+    icon: String,
+    id: Number,
+    name: String,
+    value: String,
   },
-  codingOptionsTwo: {
-    type: reOcurringSchema,
-    required: true,
+  {
+    icon: String,
+    id: Number,
+    name: String,
+    value: String,
   },
-  educationOptionsOne: {
-    type: reOcurringSchema,
-    required: true,
+  {
+    icon: String,
+    id: Number,
+    name: String,
+    value: String,
   },
-  educationOptionsTwo: {
-    type: reOcurringSchema,
-    required: true,
+  {
+    icon: String,
+    id: Number,
+    name: String,
+    value: String,
   },
-  moviesOptionsOne: {
-    type: reOcurringSchema,
-    required: true,
+  {
+    icon: String,
+    id: Number,
+    name: String,
+    value: String,
   },
-  moviesOptionsTwo: {
-    type: reOcurringSchema,
-    required: true,
-  },
-});
+  {
+    icon: String,
+    id: Number,
+    name: String,
+    value: String,
+  }
+);
 
 module.exports = optionsSchema;
