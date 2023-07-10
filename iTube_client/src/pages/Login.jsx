@@ -72,18 +72,22 @@ const Login = () => {
   return (
     <section className="relative flex flex-col">
       <Navbar loginState={loginState} position={'sticky'} />
-      <div className="flex flex-row-reverse justify-center gap-14 items-start px-16">
-        <div className="flex flex-col justify-center items-center rounded-md w-full m-auto">
+      <div className="flex flex-row-reverse justify-center gap-14 items-start px-16 login-page">
+        <div className="flex flex-col justify-center items-center rounded-md w-full m-auto login-img">
           <Link
             to={'/'}
-            className="py-1.5 w-4/5 h-auto text-center bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-md hover:bg-fuchsia-600 hover:bg-gradient-to-l text-sm font-mono mb-2"
+            className="py-1.5 w-4/5 h-auto text-center bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-tr-md rounded-tl-md hover:bg-fuchsia-600 hover:bg-gradient-to-l text-sm font-mono mb-2 link"
           >
             Login with a demo user
           </Link>
-          <img src={coder} alt="coder-guy" className="rounded-md w-4/5" />
+          <img
+            src={coder}
+            alt="coder-guy"
+            className="rounded-br-md rounded-bl-md w-4/5"
+          />
         </div>
-        <div className="flex flex-col justify-start items-center min-h-screen py-4 w-full">
-          <div className="flex flex-col justify-center items-center mb-4">
+        <div className="login flex flex-col justify-start items-center min-h-screen py-4 w-full">
+          <div className="login-text flex flex-col justify-center items-center mb-4">
             <h2 className="font-bold text-2xl pinkish">
               Hey there!! good to have you back
             </h2>
@@ -92,17 +96,17 @@ const Login = () => {
             </p>
           </div>
 
-          <div className="flex flex-col justify-start items-start w-formWidth h-formHeight shadows bg-slate-900 rounded-md py-6 px-8">
+          <div className="login-form flex flex-col justify-start items-start w-[26rem] h-formHeight shadows bg-slate-900 rounded-md py-6 px-8">
             <img
               src={welcome}
               alt="welcome-gif"
               className="rounded-lg m-auto mb-6 w-inputWidth h-32"
             />
             <form onSubmit={handleLogin}>
-              <div className="mb-6">
+              <div className="mb-6 w-full">
                 {/* <p className="text-sm font-light opacity-90 pb-2.5">Username</p> */}
                 <input
-                  className="text-xs py-3.5 px-4 border-none font-mono outline-none rounded-lg w-inputWidth placeholder:opacity-80 bg-slate-950 focus:placeholder:opacity-70 focus:text-white"
+                  className="text-xs py-3.5 px-4 border-none font-mono outline-none rounded-lg w-inputWidth placeholder:opacity-80 bg-slate-950 focus:placeholder:opacity-50 focus:text-white"
                   type="text"
                   required
                   placeholder="Enter your username..."
@@ -111,9 +115,9 @@ const Login = () => {
                   value={username}
                 />
               </div>
-              <div className="mb-12">
+              <div className="mb-12 w-full">
                 <input
-                  className="text-xs py-3.5 px-4 border-none font-mono outline-none rounded-lg w-inputWidth placeholder:opacity-80 bg-slate-950 focus:placeholder:opacity-70 focus:text-white"
+                  className="text-xs py-3.5 px-4 border-none font-mono outline-none rounded-lg w-inputWidth placeholder:opacity-80 bg-slate-950 focus:placeholder:opacity-50 focus:text-white"
                   type="password"
                   required
                   placeholder="Enter password..."
@@ -157,7 +161,7 @@ const Login = () => {
 
       {errorMessage && (
         <div className="flex justify-center items-center w-[70%] mx-auto">
-          <div className="absolute z-50 top-20 w-[70%] p-2 mb-8 bg-slate-700 border-b-2 border-[red] rounded-md text-center">
+          <div className="absolute z-50 top-16 w-[70%] p-2 mb-8 bg-slate-400 border-b-4 border-[red] rounded-md text-center">
             <Error message={errorMessage} />
           </div>
         </div>
@@ -165,7 +169,7 @@ const Login = () => {
 
       {successMessage && (
         <div className="flex justify-center items-center w-[70%] mx-auto">
-          <div className="absolute z-50 top-20 w-[70%] p-2 mb-8 bg-slate-700 border-b-2 border-[green] rounded-md text-center">
+          <div className="absolute z-50 top-16 w-[70%] p-2 mb-8 bg-slate-400 border-b-4 border-[green] rounded-md text-center">
             <Success message={successMessage} />
           </div>
         </div>

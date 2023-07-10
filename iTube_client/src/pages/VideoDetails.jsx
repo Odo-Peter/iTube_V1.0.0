@@ -66,7 +66,7 @@ const VideoDetails = () => {
         <>
           <div className="flex flex-col">
             <Navbar
-              userState={'Odo'}
+              userState={id}
               position={'fixed'}
               handleSearch={handleSearch}
               handleSearchChange={handleSearchChange}
@@ -75,15 +75,15 @@ const VideoDetails = () => {
             <div className="flex justify-between gap-12 relative">
               {!startSearch ? (
                 <>
-                  <div className="player">
+                  <div className="player w-[72vw] h-[80vh]">
                     <ReactPlayer
                       url={`https://www.youtube.com/watch?v=${id}`}
                       controls
-                      width={'72vw'}
-                      height={'80vh'}
+                      width={'100%'}
+                      height={'100%'}
                       className="react-player"
                     />
-                    <div className="flex flex-col w-playerWidth gap-2 mt-3">
+                    <div className="flex flex-col w-playerWidth gap-2 mt-3 video-text">
                       <p className="text-xs font-bold">{video?.title}</p>
                       <p className="text-xs opacity-70">
                         {video?.viewCount
@@ -93,14 +93,14 @@ const VideoDetails = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="flex flex-col absolute left-[77vw] top-[3rem] gap-4">
+                  <div className="flex flex-col absolute left-[77vw] top-[3rem] gap-4 related">
                     {relatedVideos.map((video) => (
                       <VideoCard key={video?.videoId} video={video} />
                     ))}
                   </div>
                 </>
               ) : (
-                <div>
+                <div className='search-section'>
                   <h2 className="pb-2">
                     {' '}
                     Search results for:

@@ -3,13 +3,13 @@ import { educationOptions } from '../utils/constants';
 
 const Education = ({ handleEducationOptions, educationChoice }) => {
   return (
-    <div className="mb-16">
+    <div className="edu mb-16">
       <div className="flex flex-col justify-center items-center mb-4">
         <hr className="line flex m-auto my-4 border-none outline-none h-lineHeight w-full pb-pbot" />
         <h4 className="pinkish text-2xl font-bold">Education</h4>
         <hr className="line flex m-auto my-4 border-none outline-none h-lineHeight w-full pb-pbot" />
       </div>
-      <div className="flex items-center justify-center gap-10">
+      <div className="btn-div flex items-center justify-center gap-10">
         {educationOptions[1].map((op) => (
           <button
             key={op.id}
@@ -21,7 +21,7 @@ const Education = ({ handleEducationOptions, educationChoice }) => {
         ))}
       </div>
       {/* #fc466b 0%, #3f5efb */}
-      <div className="flex items-center justify-center opacity-90 gap-10 mt-6">
+      <div className="btn-div flex items-center justify-center opacity-90 gap-10 mt-6">
         {educationOptions[2].map((op) => (
           <button
             key={op.id}
@@ -32,7 +32,7 @@ const Education = ({ handleEducationOptions, educationChoice }) => {
           </button>
         ))}
       </div>
-      <div className="pinkish flex justify-start items-center text-lg font-mono font-bold gap-6 pt-5 opacity-80">
+      <div className="pinkish edu-text flex justify-start items-center text-lg font-mono font-bold gap-6 pt-5 opacity-80">
         {educationChoice.length === 1 ? (
           <h2>
             Your choices were:{' '}

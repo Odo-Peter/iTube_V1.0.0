@@ -19,7 +19,7 @@ const SearchField = ({ handleSearch, searchTerm, handleSearchChange }) => {
     : `${demoUser.firstname[0].toUpperCase()}${demoUser.lastname[0].toUpperCase()}`;
 
   return (
-    <div className="flex gap-8 justify-center items-center">
+    <div className="flex gap-8 justify-center items-center search-bar">
       <div>
         <form
           onSubmit={handleSearch}

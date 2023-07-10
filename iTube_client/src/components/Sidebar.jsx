@@ -7,14 +7,14 @@ const Sidebar = ({
   userOptions,
 }) => {
   return (
-    <div className="thin sticky left-0 top-14 flex flex-col w-56 justify-center h-sideBar gap-2.5 px-4">
+    <div className="thin side-bar sticky left-0 top-14 flex flex-col w-56 justify-center h-sideBar gap-2.5 px-4">
       {userOptions && (
-        <div className="flex flex-col gap-1.5 mb-1.5">
+        <div className="flex flex-col gap-1.5 mb-1.5 sidebar-btn">
           {userOptions.map((op) => (
             <button
               key={`${op.id}${op.name}`}
               onClick={handleSelectedCategory}
-              className="btn"
+              className="btn s-btn"
               style={{
                 background:
                   op.name === selectedCategory

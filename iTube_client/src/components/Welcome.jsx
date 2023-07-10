@@ -16,8 +16,8 @@ const Welcome = ({ useDemoUser }) => {
   }, []);
 
   return (
-    <section className="flex gap-4 justify-center items-center w-full h-full px-16 overflow-hidden">
-      <div className="w-3/5">
+    <section className="flex gap-4 justify-center items-center w-full h-full px-16 overflow-hidden welcome-page">
+      <div className="w-3/5 _text">
         <h1 className="text-7xl font-bold pb-4 leading-2">
           <span className="welcome">Welcome to</span> <br />{' '}
           <TextAnimation text={'iTube'} />{' '}
@@ -28,7 +28,7 @@ const Welcome = ({ useDemoUser }) => {
             <span className="text-red-600 tracking-wider px-0.5">YOUTUBE</span>{' '}
             clone app
           </h2>
-          <div className="mb-6">
+          <div className="mb-6 quotes">
             {dailyQuotes ? (
               <p>
                 <span className="font-light text-sm font-mono opacity-90">

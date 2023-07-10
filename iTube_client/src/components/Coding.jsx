@@ -2,13 +2,13 @@ import { codingOptions } from '../utils/constants';
 
 const Coding = ({ codingChoice, handleCodingOptions }) => {
   return (
-    <div className="mb-16">
+    <div className="coding mb-16">
       <div className="flex flex-col justify-center items-center mb-4">
         <hr className="line2 flex m-auto my-4 border-none outline-none h-lineHeight w-full pb-pbot" />
         <h4 className="welcome text-2xl font-bold">Coding</h4>
         <hr className="line2 flex m-auto my-4 border-none outline-none h-lineHeight w-full pb-pbot" />
       </div>
-      <div className="flex items-center justify-center gap-10">
+      <div className="btn-div flex items-center justify-center gap-10">
         {codingOptions[1].map((op) => (
           <button
             key={op.id}
@@ -20,7 +20,7 @@ const Coding = ({ codingChoice, handleCodingOptions }) => {
         ))}
       </div>
 
-      <div className="flex items-center justify-center gap-10 mt-6 opacity-90">
+      <div className="btn-div flex items-center justify-center gap-10 mt-6 opacity-90">
         {codingOptions[2].map((op) => (
           <button
             key={op.id}
@@ -31,7 +31,7 @@ const Coding = ({ codingChoice, handleCodingOptions }) => {
           </button>
         ))}
       </div>
-      <div className="welcome flex justify-start items-center text-lg font-mono font-bold gap-6 pt-5 opacity-85">
+      <div className="welcome coding-text flex justify-start items-center text-lg font-mono font-bold gap-6 pt-5 opacity-85">
         {codingChoice.length === 1 ? (
           <h2>
             Your choices were:{' '}

@@ -3,13 +3,13 @@ import { moviesOptions } from '../utils/constants';
 
 const Movies = ({ handleMoviesOptions, moviesChoice }) => {
   return (
-    <div className="mb-16">
+    <div className="movies mb-16">
       <div className="flex flex-col justify-center items-center mb-4">
         <hr className="line2 flex m-auto my-4 border-none outline-none h-lineHeight w-full pb-pbot" />
         <h4 className="welcome text-2xl font-bold">Movies</h4>
         <hr className="line2 flex m-auto my-4 border-none outline-none h-lineHeight w-full pb-pbot" />
       </div>
-      <div className="flex items-center justify-center gap-10">
+      <div className="btn-div flex items-center justify-center gap-10">
         {moviesOptions[1].map((op) => (
           <button
             key={op.id}
@@ -21,7 +21,7 @@ const Movies = ({ handleMoviesOptions, moviesChoice }) => {
         ))}
       </div>
 
-      <div className="flex items-center justify-center gap-10 mt-6 opacity-90">
+      <div className="btn-div flex items-center justify-center gap-10 mt-6 opacity-90">
         {moviesOptions[2].map((op) => (
           <button
             key={op.id}
@@ -32,7 +32,7 @@ const Movies = ({ handleMoviesOptions, moviesChoice }) => {
           </button>
         ))}
       </div>
-      <div className="welcome flex justify-start items-center text-lg font-mono font-bold gap-6 pt-5 opacity-80">
+      <div className="welcome movies-text flex justify-start items-center text-lg font-mono font-bold gap-6 pt-5 opacity-80">
         {moviesChoice.length === 1 ? (
           <h2>
             Your choices were:{' '}

@@ -3,7 +3,7 @@ import React from 'react';
 const Success = ({ message }) => {
   return (
     <div>
-      <p className="text-sm font-bold">{message}</p>
+      <p className="text-sm font-medium">{message}</p>
     </div>
   );
 };

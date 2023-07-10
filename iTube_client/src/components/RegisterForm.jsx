@@ -14,7 +14,7 @@ const RegisterForm = ({
 }) => {
   return (
     <>
-      <div className="flex flex-col justify-center items-center ml-20 w-full">
+      <div className="register-div flex flex-col justify-center items-center ml-20 w-full">
         <div className="flex flex-col text-center items-center mb-4">
           <h2 className="pinkish font-bold text-2xl">
             Hey there!! glad you made it to this point
@@ -24,8 +24,8 @@ const RegisterForm = ({
           </p>
         </div>
         <div>
-          <div className="flex flex-col justify-center items-start gap-10 w-formWidth h-formHeight shadows bg-slate-900 rounded-md py-6 px-8">
-            <div>
+          <div className="register-form flex flex-col justify-center items-start gap-10 w-formWidth h-formHeight shadows bg-slate-900 rounded-md py-6 px-8">
+            <div className="w-full">
               <input
                 className="text-xs py-3.5 px-4 border-none font-mono outline-none rounded-lg w-inputWidth opacity-90 bg-slate-950 focus:placeholder:opacity-70 focus:text-white"
                 type="text"
@@ -36,7 +36,7 @@ const RegisterForm = ({
                 value={firstname}
               />
             </div>
-            <div>
+            <div className="w-full">
               <input
                 className="text-xs py-3.5 px-4 border-none font-mono outline-none rounded-lg w-inputWidth opacity-90 bg-slate-950 focus:placeholder:opacity-70 focus:text-white"
                 type="text"
@@ -47,7 +47,7 @@ const RegisterForm = ({
                 value={lastname}
               />
             </div>
-            <div>
+            <div className="w-full">
               <input
                 className="text-xs py-3.5 px-4 border-none font-mono outline-none rounded-lg w-inputWidth opacity-90 bg-slate-950 focus:placeholder:opacity-70 focus:text-white"
                 type="text"
@@ -58,7 +58,7 @@ const RegisterForm = ({
                 value={username}
               />
             </div>
-            <div>
+            <div className="w-full">
               <input
                 className="text-xs py-3.5 px-4 border-none font-mono outline-none rounded-lg w-inputWidth opacity-90 bg-slate-950 focus:placeholder:opacity-70 focus:text-white"
                 type="password"
@@ -91,14 +91,14 @@ const RegisterForm = ({
           </div>
         </div>
       </div>
-      <div className="mt-40 w-full text-center pr-16">
+      <div className="trust mt-40 w-full text-center pr-16">
         {/* <button className="py-1.5 w-4/5 h-auto bg-gradient-to-r from-cyan-600 to-blue-600 rounded-md hover:bg-fuchsia-500 hover:bg-gradient-to-l text-sm font-mono mb-2">
           Register with a demo user
         </button> */}
-        <h1 className="text-6xl font-bold pt-4 leading-2">
+        <h4 className="text-6xl font-bold pt-4 leading-2">
           <span className="welcome">Trust us, it'll be love at first</span>{' '}
           <br /> <TextAnimation text={'sight'} />{' '}
-        </h1>
+        </h4>
       </div>
     </>
   );

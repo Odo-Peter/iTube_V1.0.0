@@ -3,13 +3,13 @@ import { animeOptions } from '../utils/constants';
 
 const Anime = ({ handleAnimeOptions, animeChoice }) => {
   return (
-    <div className="mb-16">
+    <div className="anime mb-16">
       <div className="flex flex-col justify-center items-center mb-4">
         <hr className="line flex m-auto my-4 border-none outline-none h-lineHeight w-full pb-pbot" />
         <h4 className="pinkish text-2xl font-bold">Anime</h4>
         <hr className="line flex m-auto my-4 border-none outline-none h-lineHeight w-full pb-pbot" />
       </div>
-      <div className="flex items-center justify-center gap-10 opacity-90">
+      <div className="btn-div flex items-center justify-center gap-10 opacity-90">
         {animeOptions[1].map((op) => (
           <button
             key={op.id}
@@ -21,7 +21,7 @@ const Anime = ({ handleAnimeOptions, animeChoice }) => {
         ))}
       </div>
 
-      <div className="flex items-center justify-center gap-10 mt-6">
+      <div className="btn-div flex items-center justify-center gap-10 mt-6">
         {animeOptions[2].map((op) => (
           <button
             key={op.id}
@@ -32,7 +32,7 @@ const Anime = ({ handleAnimeOptions, animeChoice }) => {
           </button>
         ))}
       </div>
-      <div className="pinkish flex justify-start items-center text-lg font-mono font-bold gap-6 pt-5 opacity-80">
+      <div className="pinkish anime-text flex justify-start items-center text-lg font-mono font-bold gap-6 pt-5 opacity-80">
         {animeChoice.length === 1 ? (
           <h2>
             Your choices were:{' '}

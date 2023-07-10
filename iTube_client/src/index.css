@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   padding: 0;
   margin: 0;
@@ -95,6 +99,603 @@
   left: 1rem;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*===== media queries ======*/
+/* medium devices, tablets*/
+@media only screen and (max-width: 1100px) {
+  .welcome-page {
+    gap: 0.7rem;
+    padding: 0 3.4rem;
+  }
+
+  .welcome-page ._text h1 {
+    font-size: 4rem;
+  }
+
+  .welcome-page ._text h2 {
+    font-size: 1.2rem;
+  }
+
+  .welcome-page ._text p {
+    font-size: 13px;
+  }
+
+  .login {
+    width: 24rem;
+  }
+
+  .login-img img {
+    width: 90%;
+  }
+
+  .login-img .link {
+    width: 90%;
+  }
+}
+
+/*tablets*/
+@media only screen and (max-width: 900px) {
+  .welcome-page {
+    gap: 0.7rem;
+    padding: 0 3.4rem;
+  }
+
+  .welcome-page ._text h1 {
+    font-size: 3.8rem;
+  }
+
+  .login .login-text {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .login .login-text h2 {
+    font-size: 20px;
+  }
+
+  .login .login-form {
+    width: 22rem;
+  }
+
+  .login-form input {
+    width: 18rem;
+  }
+
+  .register h3 {
+    font-size: 32px;
+  }
+
+  .video-field {
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loader {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0 auto;
+  }
+
+  .video-cards {
+    justify-content: center;
+  }
+
+  .music hr {
+    width: 100%;
+  }
+
+  .music .btn-div {
+    font-size: 14px;
+  }
+
+  .music button {
+    width: 10rem;
+    padding: 7px 0;
+  }
+
+  .gaming hr {
+    width: 100%;
+  }
+
+  .gaming .btn-div {
+    font-size: 14px;
+  }
+
+  .gaming button {
+    width: 10rem;
+    padding: 7px 0;
+  }
+
+  .anime hr {
+    width: 100%;
+  }
+
+  .anime .btn-div {
+    font-size: 14px;
+  }
+
+  .anime button {
+    width: 10rem;
+    padding: 7px 0;
+  }
+
+  .coding hr {
+    width: 100%;
+  }
+
+  .coding .btn-div {
+    font-size: 14px;
+  }
+
+  .coding button {
+    width: 10rem;
+    padding: 7px 0;
+  }
+
+  .edu hr {
+    width: 100%;
+  }
+
+  .edu .btn-div {
+    font-size: 14px;
+  }
+
+  .edu button {
+    width: 10rem;
+    padding: 7px 0;
+  }
+
+  .movies hr {
+    width: 100%;
+  }
+
+  .movies .btn-div {
+    font-size: 14px;
+  }
+
+  .movies button {
+    width: 10rem;
+    padding: 7px 0;
+  }
+
+  .finish h2 {
+    font-size: 32px;
+  }
+
+  .finish hr {
+    width: 85%;
+  }
+
+  .trust h4 {
+    font-size: 54px;
+  }
+
+  .register-div {
+    width: 80%;
+  }
+
+  .register-div .register-form {
+    width: 23rem;
+  }
+
+  .register-div .register-form input {
+    width: 19rem;
+  }
+}
+
+/*Large Mobile Phones*/
+@media only screen and (max-width: 500px) {
+  .navigation-bar {
+    padding: 10px 1rem;
+  }
+
+  .navigation-bar .none-text {
+    display: none;
+  }
+
+  .navigation-bar .sign-btn {
+    padding-right: 6px;
+  }
+
+  .navigation-bar .register {
+    width: 8rem;
+  }
+
+  .navigation-bar .login {
+    width: 8rem;
+  }
+
+  .navigation-bar .sign-btn button {
+    font-size: 11px;
+    padding: 5px 0;
+  }
+
+  .search-bar {
+    gap: 12px;
+  }
+
+  .search-bar input {
+    width: 55vw;
+    padding-left: 14px;
+    font-size: 12px;
+    margin-right: 0.4rem;
+    margin-left: 0.5rem;
+  }
+
+  .search-bar button {
+    top: 12.5%;
+    right: 1.5rem;
+  }
+
+  .welcome-page {
+    flex-direction: column;
+  }
+
+  .welcome-page ._text {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-contents: space-between;
+    align-items: center;
+  }
+
+  .welcome-page ._text h1 {
+    width: 100%;
+    font-size: 3.2rem;
+    text-align: center;
+  }
+
+  .welcome-page ._text h2 {
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .welcome-page ._text .quotes span {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .welcome-page button {
+    font-size: 13.5px;
+  }
+
+  .side-bar {
+    display: none;
+  }
+
+  .video-field {
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loader {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0 auto;
+  }
+
+  .video-cards {
+    justify-content: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .player {
+    top: 3.2rem;
+    left: 0;
+    width: 100%;
+    height: 16rem;
+    z-index: 1000;
+  }
+
+  .video-text {
+    position: fixed;
+    z-index: 1000;
+    top: 18rem;
+    width: 100vw;
+    left: 0;
+    padding: 4px 10px;
+    background-color: rgb(2, 6, 23);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .video-text p {
+    padding: 2px 0;
+  }
+
+  .related {
+    left: 60%;
+    top: 19.2rem;
+    width: 80vw;
+    margin-left: 3rem;
+  }
+
+  .search-section {
+    position: absolute;
+    top: 3rem;
+    left: -8rem;
+    height: auto;
+  }
+
+  .login-page {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 0;
+  }
+
+  .login .login-text {
+    width: 90vw;
+    gap: 6px;
+  }
+
+  .login .login-text h2 {
+    font-size: 20px;
+  }
+
+  .login .login-form {
+    width: 85vw;
+    height: 27rem;
+  }
+
+  .login-form input {
+    width: 72vw;
+    padding: 10px 16px;
+  }
+
+  .login-page .login-img img {
+    width: 85vw;
+  }
+
+  .login-page .login-img .link {
+    width: 85vw;
+  }
+
+  .register-page {
+    width: 100%;
+    justify-contents: center;
+    align-items: center;
+    margin: 0.2rem 10px;
+  }
+
+  .register-page .page-intro {
+    flex-direction: column;
+    justify-contents: center;
+    align-items: center;
+    margin-right: 10px;
+  }
+
+  .register-page .page-intro > div {
+    margin: 0 auto;
+    width: 85%;
+  }
+
+  .register-page .page-intro h1 {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  .register-page .page-intro img {
+    height: 20rem;
+  }
+
+  .customize {
+    justify-contents: center;
+    align-items: center;
+    margin: 0 10px;
+  }
+
+  .customize h1 {
+    font-size: 36px;
+  }
+
+  .register h3 {
+    justify-contents: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 1.5rem;
+    margin-bottom: 18px;
+  }
+
+  .register .home-btn {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+
+  .register .home-choice {
+    margin: 0 auto;
+    margin-top: -1rem;
+    justify-contents: center;
+    align-items: center;
+    width: 90vw;
+    font-size: 17px;
+    margin-bottom: 1rem;
+  }
+
+  .register .home-img-div {
+    margin: 0.05rem 0;
+  }
+
+  .register .other {
+    margin-top: 2.5rem;
+  }
+
+  .register .catego h3 {
+    font-size: 20px;
+  }
+
+  .register .catego p {
+    font-size: 16px;
+    margin: 0 auto;
+    margin-bottom: 18px;
+    margin-top: -1rem;
+  }
+
+  .music .btn-div {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .music button {
+    width: 80%;
+    padding: 7px 0;
+  }
+
+  .music .music-text {
+    margin: 0 auto;
+    justify-contents: center;
+    align-items: center;
+    width: 90vw;
+    font-size: 16px;
+  }
+
+  .gaming .btn-div {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .gaming button {
+    width: 80%;
+    padding: 7px 0;
+  }
+
+  .gaming .gaming-text {
+    margin: 0 auto;
+    justify-contents: center;
+    align-items: center;
+    width: 90vw;
+    font-size: 16px;
+  }
+
+  .anime .btn-div {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .anime button {
+    width: 80%;
+    padding: 7px 0;
+  }
+
+  .anime .anime-text {
+    margin: 0 auto;
+    justify-contents: center;
+    align-items: center;
+    width: 90vw;
+    font-size: 16px;
+  }
+
+  .coding .btn-div {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .coding button {
+    width: 80%;
+    padding: 7px 0;
+  }
+
+  .coding .coding-text {
+    margin: 0 auto;
+    justify-contents: center;
+    align-items: center;
+    width: 90vw;
+    font-size: 16px;
+  }
+
+  .edu .btn-div {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .edu button {
+    width: 80%;
+    padding: 7px 0;
+  }
+
+  .edu .edu-text {
+    margin: 0 auto;
+    justify-contents: center;
+    align-items: center;
+    width: 90vw;
+    font-size: 16px;
+  }
+
+  .movies .btn-div {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .movies button {
+    width: 80%;
+    padding: 7px 0;
+  }
+
+  .movies .movies-text {
+    margin: 0 auto;
+    justify-contents: center;
+    align-items: center;
+    width: 90vw;
+    font-size: 16px;
+  }
+
+  .finish {
+    margin-bottom: 6px;
+    margin-top: -1rem;
+  }
+
+  .finish h2 {
+    font-size: 24px;
+  }
+
+  .register-form-div {
+    padding-top: 4px;
+  }
+
+  .trust {
+    display: none;
+  }
+
+  .register-div {
+    margin: 0 auto;
+  }
+
+  .register-div h2 {
+    font-size: 19px;
+  }
+
+  .register-div .register-form {
+    width: 84vw;
+    height: 25rem;
+    margin: 0 auto;
+    padding-top: 3.4rem;
+  }
+
+  .register-div .register-form input {
+    padding: 10px 1rem;
+    width: 100%;
+  }
+
+  .submit-btn {
+    width: 84vw;
+    font-size: 14px;
+  }
+}

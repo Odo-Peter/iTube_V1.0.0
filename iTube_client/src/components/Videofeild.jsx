@@ -29,7 +29,7 @@ const Videofeild = ({ text, categoryValue, vw, searchText, ml, mx }) => {
   // console.log(videos);
 
   return (
-    <section className="flex flex-col overflow-x-hidden">
+    <section className="video-field flex flex-col overflow-x-hidden">
       <div
         className={`flex items-center tracking-wider font-bold justify-start ${ml} pt-4 pl-8`}
       >
@@ -38,13 +38,15 @@ const Videofeild = ({ text, categoryValue, vw, searchText, ml, mx }) => {
         </h2>
       </div>
       {isLoading ? (
-        <div className={`flex justify-center items-center h-sideBar ${vw}`}>
+        <div
+          className={`flex justify-center items-center h-sideBar ${vw} loader`}
+        >
           <Loader />
         </div>
       ) : (
         <>
           <div
-            className={`flex items-center gap-6 justify-start flex-wrap mt-2 ${mx} pl-8`}
+            className={`flex items-center gap-6 justify-start flex-wrap mt-2 ${mx} pl-8 video-cards`}
           >
             {videos.map((video) => (
               <VideoCard key={video.videoId} video={video} />

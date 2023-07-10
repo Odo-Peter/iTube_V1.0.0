@@ -15,7 +15,7 @@ const Navbar = ({
 }) => {
   return (
     <nav
-      className={`flex items-center bg-slate-950 justify-between py-2 pl-10 w-[100vw] ${position} top-0 left-0 shadows z-50`}
+      className={`flex items-center bg-slate-950 justify-between py-2 pl-10 w-[100vw] ${position} top-0 left-0 shadows z-50 navigation-bar`}
     >
       <div>
         <div className="flex gap-2">
@@ -26,21 +26,21 @@ const Navbar = ({
           </div>
           <h1 className="welcome font-bold tracking-wider">iTube</h1>
         </div>
-        <p className="text-vxs text-slate-300 font-thin italic">
+        <p className="text-vxs text-slate-300 font-thin italic none-text">
           ...Redefining Youtube API
         </p>
       </div>
-      <div className="flex items-center gap-6 text-xs pr-16 font-mono">
+      <div className="sign-btn flex items-center gap-6 text-xs pr-16 font-mono">
         {loginState && (
           <Link to={'/auth/sign_up'}>
-            <button className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md hover:bg-gradient-to-l">
+            <button className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md hover:bg-gradient-to-l register">
               Register
             </button>
           </Link>
         )}
         {registerState && (
           <Link to={'/auth/sign_in'}>
-            <button className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-md hover:bg-fuchsia-500 hover:bg-gradient-to-l">
+            <button className="py-1.5 font-mono w-48 h-auto bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-md hover:bg-fuchsia-500 hover:bg-gradient-to-l login">
               Login
             </button>
           </Link>
